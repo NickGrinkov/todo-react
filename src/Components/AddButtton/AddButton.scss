@@ -1,0 +1,67 @@
+.add_list_item {
+    .todo_item {
+        opacity: 0.5;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.add_popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: border-box;
+    z-index: 5;
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    &_list {
+        display: flex;
+        justify-content: space-between;
+    }
+    &_close {
+        position: absolute;
+        cursor: pointer;
+        top: -5px;
+        right: -5px;
+    }
+    .circle {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    .input {
+        box-sizing: border-box;
+        border: 1px solid lightblue;
+        padding: 5px;
+        border-radius: 5px;
+        font-family: inherit;
+    }
+    
+    .input::placeholder {
+        font-size: 18px
+    }
+    
+    .button {
+        width: 100%;
+        border-radius: 5px;
+        border: 2px solid green;
+        background: green;
+        color: white;
+        cursor: pointer;
+        &:hover {
+            background: white;
+            color: green;
+            border: 2px solid green; 
+        }
+    }
+}
+
+
+

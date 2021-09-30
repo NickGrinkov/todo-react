@@ -1,0 +1,31 @@
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-flex;
+    margin: 0;
+    &-green {
+        background-color: green;
+    }
+    &-red {
+        background-color: red;
+    }
+    &-blue {
+        background-color: blue;
+    }
+    &-grey {
+        background-color: grey;
+    }
+    &-lime {
+        background-color: lime;
+    }
+    &-pink {
+        background-color: pink;
+    }
+    &-purple {
+        background-color: purple;
+    }
+    &-black {
+        background-color: black;
+    }
+}

@@ -1,0 +1,22 @@
+.todo_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.todo_item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
+    span {
+        margin-left: 10px;
+    }
+    i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
