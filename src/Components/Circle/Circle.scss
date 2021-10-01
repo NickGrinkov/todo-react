@@ -4,6 +4,7 @@
     border-radius: 50%;
     display: inline-flex;
     margin: 0;
+    border: 2px solid transparent;
     &-green {
         background-color: green;
     }
@@ -27,5 +28,8 @@
     }
     &-black {
         background-color: black;
+    }
+    &.active {
+        border: 1.5px solid black;
     }
 }
