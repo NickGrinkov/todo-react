@@ -8,7 +8,6 @@
     box-sizing: border-box;
 }
 
-
 .todo {
     display: flex;
     max-width: 1200px;
@@ -19,8 +18,12 @@
     &_main {
         flex: 1;
         width: 100%;
-        padding: 30px;
-        background-color: turquoise;
+        padding: 60px;
+        background-color: #90eef5;
+        &_list {
+            display: flex;
+            flex-direction: column;
+        }
     }
     &_sidebar {
         display: flex;

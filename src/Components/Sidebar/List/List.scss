@@ -4,6 +4,9 @@
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
+    .active {
+        background-color: white;
+    }
     .todo_item {
         position: relative;
         display: flex;
@@ -26,7 +29,10 @@
             background-color: rgba(255,255,255, 0.5)
         }
         &:hover .todo_item_close {
-            opacity: 0.5;
+            opacity: 0.3;
+            &:hover {
+                opacity: 1;
+            }
         }
         &_close {
             position: absolute;

@@ -1,0 +1,21 @@
+.header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 350px;
+    &:hover img {
+        opacity: 0.5;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    img {
+        opacity: 0;
+    }
+    .header {
+        font-size: 50px;
+        color: white;
+        margin: 20px;
+    }
+}

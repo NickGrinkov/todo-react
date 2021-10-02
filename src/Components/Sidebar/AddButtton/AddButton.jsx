@@ -3,12 +3,12 @@ import List from "../List/List";
 import Circle from '../Circle/Circle';
 import {useState} from 'react'
 import './AddButton.scss';
-import closeSvg from '../../assets/img/close.svg'
+import closeSvg from '../../../assets/img/close.svg';
 
 
 function AddButton({colors, onAdd}) {
   const [visiblePopup, setvisiblePopup] = useState(false);
-  let [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const [selectedColor, setSelectedColor] = useState(colors[0].id)
 
   const addList = () => {
