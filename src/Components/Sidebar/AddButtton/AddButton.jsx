@@ -1,24 +1,39 @@
 import React from "react";
+import axios from "axios";
 import List from "../List/List";
 import Circle from '../Circle/Circle';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import './AddButton.scss';
 import closeSvg from '../../../assets/img/close.svg';
 
 
 function AddButton({colors, onAdd}) {
+  
   const [visiblePopup, setvisiblePopup] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [selectedColor, setSelectedColor] = useState(colors[0].id)
+  const [selectedColor, setSelectedColor] = useState(1);
+  const [isLoading, setIsLoading] = useState(false)
 
+  useEffect(() => {
+    if(Array.isArray(colors)) {
+      setSelectedColor(colors[0].id)
+    }
+  }, [colors]);
+  
   const addList = () => {
-    if(inputValue === '') {
+    if(!inputValue) {
       alert('Введите название списка')
     } else {
-      const color = colors.filter(color => color.id === selectedColor)[0].name
-        onAdd({id: Math.random(), name: inputValue, color: color})
+      setIsLoading(true)
+        axios.post('http://localhost:3001/lists', {name: inputValue, colorId: selectedColor}).then(({data}) => {
+          const color = colors.filter(c => c.id === selectedColor)[0].name
+          const newObj = {...data, color: {name: color}}
+          onAdd(newObj);
+          closePopup()
+          setIsLoading(false)
+        }).finally(setIsLoading(true) )
     }
-    closePopup()
+    
   }
 
   function closePopup() {
@@ -70,7 +85,7 @@ function AddButton({colors, onAdd}) {
         <div className="add_popup_colors">
           <ul className="add_popup_list">
             {
-              colors.map(color => <Circle 
+              colors.map(color => <Circle
                 onClick={() => setSelectedColor(color.id)}
                 className={selectedColor === color.id ? 'active' : ''} 
                 key={color.id} 
@@ -78,7 +93,7 @@ function AddButton({colors, onAdd}) {
             }
           </ul>
         </div>
-        <button onClick={addList} className="button">Добавить</button>
+        <button onClick={addList} className="button">{isLoading ? 'Добавление...' : 'Добавить'}</button>
       </div>
      }
     </div>

@@ -14,7 +14,6 @@
     margin: 100px auto;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    height: 700px;
     &_main {
         flex: 1;
         width: 100%;
@@ -31,6 +30,7 @@
         align-items: flex-start;
         background-color: #dff3f5;
         width: 300px;
+        min-height: 500px;
         padding: 20px;
     }
 }

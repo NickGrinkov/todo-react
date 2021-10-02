@@ -1,21 +1,25 @@
-import { useState } from 'react';
-import List from './Components/Sidebar/List/List';
-import AddButton from './Components/Sidebar/AddButtton/AddButton';
-import TasksButton from './Components/Sidebar/TasksButton/TasksButton';
-import Header from './Components/Main/Header/Header';
-import ListItem from './Components/Main/ListItem/ListItem';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import {List, AddButton, TasksButton, Header, ListItem} from './Components/index';
 
 import './App.scss';
 
-import DB from './assets/db.json';
-
 function App() {
+  const [lists, setLists] = useState(null);
+  const [colors, setColors] = useState(null);
+  
+  
+  useEffect(() => {
+      axios.get('http://localhost:3001/lists?_expand=color').then(({data}) => {
+        setLists(data)
+      })
+  }, [])
 
-const [lists, setLists] = useState(
-  DB.lists.map(item => {
-    item.color = DB.colors.filter(color => color.id === item.colorId)[0].name;
-    return item
-}))
+  useEffect(() => {
+    axios.get('http://localhost:3001/colors').then(({data}) => {
+      setColors(data)
+    })
+  }, [])
 
 function onAddList(obj) {
   const newList = [
@@ -25,16 +29,24 @@ function onAddList(obj) {
   setLists(newList)
 }
 
+function omRemove(id) {
+   setLists(lists.filter(item => item.id !== id))
+}
+
   return (
     <div className="todo">
       <div className="todo_sidebar">
         <TasksButton/>
-        <List 
-          isRemovable 
-          items={lists}
-          onRemove={item => console.log(item)}
-        />
-        <AddButton onAdd={onAddList} colors={DB.colors}/>
+        {
+          lists ? (
+            <List 
+              isRemovable 
+              items={lists}
+              onRemove={omRemove}
+            />
+          ) : ('Идет загрузка...')
+        }
+          <AddButton onAdd={onAddList} colors={colors}/>
       </div>
       <div className="todo_main">
         <Header/>

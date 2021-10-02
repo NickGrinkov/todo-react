@@ -8,7 +8,7 @@ function ListItem() {
     return (
         <li className="todo_list_item">
             <Checkbox/>
-             <span>Изучить Javascript</span>
+             <input type="text" value="Выучить JS"/>
              <img src={remove} alt="" />
         </li>
     )
