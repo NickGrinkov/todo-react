@@ -1,11 +1,11 @@
 import React from "react";
 import './Checkbox.scss';
 
-function Checkbox() {
+function Checkbox({task}) {
   return (
     <div className="checkbox">
-      <input id="check" type="checkbox" />
-      <label htmlFor="check">
+      <input id={`check-${task.id}`} type="checkbox" />
+      <label htmlFor={`check-${task.id}`}>
         <svg
           width="11"
           height="8"
@@ -16,9 +16,9 @@ function Checkbox() {
           <path
             d="M9.29999 1.20001L3.79999 6.70001L1.29999 4.20001"
             stroke="black"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </label>

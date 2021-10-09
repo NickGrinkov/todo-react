@@ -10,7 +10,7 @@ function App() {
   
   
   useEffect(() => {
-      axios.get('http://localhost:3001/lists?_expand=color').then(({data}) => {
+      axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks').then(({data}) => {
         setLists(data)
       })
   }, [])
@@ -49,11 +49,14 @@ function omRemove(id) {
           <AddButton onAdd={onAddList} colors={colors}/>
       </div>
       <div className="todo_main">
-        <Header/>
+        {
+          lists && <Header list={lists[1]}/>
+        }
          <hr></hr>
          <ul className="todo_main_list">
-          <ListItem/>
-          <ListItem/>
+          {
+            lists && <ListItem tasks={lists[1].tasks}/>
+          }
          </ul>
       </div>
     </div>

@@ -1,17 +1,20 @@
-import React from 'react';
-import Checkbox from '../Checkbox/Checkbox';
-import remove from '../../../assets/img/remove.svg';
+import React from "react";
+import Checkbox from "../Checkbox/Checkbox";
+import remove from "../../../assets/img/remove.svg";
 
-import './ListItem.scss'
+import "./ListItem.scss";
 
-function ListItem() {
-    return (
-        <li className="todo_list_item">
-            <Checkbox/>
-             <input type="text" value="Выучить JS"/>
-             <img src={remove} alt="" />
-        </li>
-    )
+function ListItem({ tasks }) {
+  return (
+    tasks &&
+    tasks.map((task) => (
+      <li key={task.id} className="todo_list_item">
+        <Checkbox task={task}/>
+        <input type="text" value={task.text} readOnly/>
+        <img src={remove} alt="close" />
+      </li>
+    ))
+  );
 }
 
 export default ListItem;

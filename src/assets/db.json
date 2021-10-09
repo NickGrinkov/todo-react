@@ -16,14 +16,9 @@
       "colorId": 3
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Личное",
       "colorId": 1
-    },
-    {
-      "name": "ghbftn",
-      "colorId": 1,
-      "id": 6
     }
   ],
   "tasks": [
