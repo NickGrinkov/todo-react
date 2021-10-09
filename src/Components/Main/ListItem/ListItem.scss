@@ -23,3 +23,11 @@
         opacity: 0;
     }
 }
+
+.empty_tasks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    opacity: 0.4;
+}

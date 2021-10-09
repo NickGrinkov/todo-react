@@ -7,6 +7,8 @@ import './App.scss';
 function App() {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
+  const [activeItem, setactiveItem] = useState(0);
+
   
   
   useEffect(() => {
@@ -43,6 +45,8 @@ function omRemove(id) {
               isRemovable 
               items={lists}
               onRemove={omRemove}
+              onClickItem={item => setactiveItem(item)}
+              activeItem={activeItem}
             />
           ) : ('Идет загрузка...')
         }
@@ -50,12 +54,12 @@ function omRemove(id) {
       </div>
       <div className="todo_main">
         {
-          lists && <Header list={lists[1]}/>
+          lists && <Header list={activeItem}/>
         }
          <hr></hr>
          <ul className="todo_main_list">
           {
-            lists && <ListItem tasks={lists[1].tasks}/>
+            lists && activeItem ? <ListItem tasks={activeItem.tasks}/> : null
           }
          </ul>
       </div>

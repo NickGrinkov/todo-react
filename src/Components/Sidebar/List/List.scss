@@ -17,8 +17,11 @@
         cursor: pointer;
         margin: 10px;
         span {
+            width: 170px;
             margin-left: 10px;
-            flex: 1;
+            text-overflow: ellipsis;
+            overflow: hidden; 
+            white-space: nowrap;
         }
         i {
             display: flex;
