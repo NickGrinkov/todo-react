@@ -3,7 +3,7 @@
     position: relative;
     align-items: center;
     width: 700px;
-    margin: 20px;
+    margin: 15px;
     cursor: pointer;
     &:hover img {
         opacity: 0.5;
@@ -30,4 +30,5 @@
     align-items: center;
     font-size: 50px;
     opacity: 0.4;
+    margin-top: 10%;
 }

@@ -47,20 +47,6 @@
     .input::placeholder {
         font-size: 18px
     }
-    
-    .button {
-        width: 100%;
-        border-radius: 5px;
-        border: 2px solid green;
-        background: green;
-        color: white;
-        cursor: pointer;
-        &:hover {
-            background: white;
-            color: green;
-            border: 2px solid green; 
-        }
-    }
 }
 
 

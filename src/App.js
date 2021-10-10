@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {List, AddButton, TasksButton, Header, ListItem} from './Components/index';
+import {List, AddButton, TasksButton, Header, ListItem, NewTask} from './Components/index';
+
 
 import './App.scss';
 
@@ -35,9 +36,19 @@ function omRemove(id) {
    setLists(lists.filter(item => item.id !== id))
 }
 
+function onEditTitle(id, title) {
+  const newTitle = lists.map((list) => {
+    if(list.id === id) {
+      list.name = title
+    }
+    return list
+  })
+  setLists(newTitle)
+}
+
   return (
     <div className="todo">
-      <div className="todo_sidebar">
+      <div className="sidebar">
         <TasksButton/>
         {
           lists ? (
@@ -52,16 +63,17 @@ function omRemove(id) {
         }
           <AddButton onAdd={onAddList} colors={colors}/>
       </div>
-      <div className="todo_main">
+      <div className="main">
         {
-          lists && <Header list={activeItem}/>
+          lists && <Header onEditTitle={onEditTitle} list={activeItem}/>
         }
          <hr></hr>
-         <ul className="todo_main_list">
+         <ul className="main__list">
           {
             lists && activeItem ? <ListItem tasks={activeItem.tasks}/> : null
           }
          </ul>
+         <NewTask/>
       </div>
     </div>
   );

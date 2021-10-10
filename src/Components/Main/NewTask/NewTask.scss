@@ -1,0 +1,35 @@
+.main__new-task {
+    display: flex;
+    align-items: center;
+    margin: 18px;
+    opacity: 0.4;
+    cursor: pointer;
+    span {
+        margin-left: 10px;
+    }
+    img {
+        width: 24px;
+        height: 24px;
+    }
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.main__new-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 18px;
+    .main__wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        width: 320px;
+    }
+    input {
+        padding: 7px;
+        border: 1px solid green;
+        border-radius: 5px;
+    }
+}
