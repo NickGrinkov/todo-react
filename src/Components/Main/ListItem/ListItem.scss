@@ -1,4 +1,4 @@
-.todo_list_item {
+.main__list-item {
     display: flex;
     position: relative;
     align-items: center;
@@ -24,7 +24,7 @@
     }
 }
 
-.empty_tasks {
+.main__empty-tasks{
     display: flex;
     justify-content: center;
     align-items: center;

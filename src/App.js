@@ -11,7 +11,6 @@ function App() {
   const [activeItem, setactiveItem] = useState(0);
 
   
-  
   useEffect(() => {
       axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks').then(({data}) => {
         setLists(data)
@@ -32,8 +31,27 @@ function onAddList(obj) {
   setLists(newList)
 }
 
-function omRemove(id) {
+function onAddTask(listId, task) {
+    const newList = lists.map((list) => {
+      if (list.id === listId) {
+        list.tasks = [...list.tasks, task]
+      } 
+      return list
+    })
+    setLists(newList)
+}
+
+function omRemoveList(id) {
    setLists(lists.filter(item => item.id !== id))
+}
+
+function omRemoveTask(listId, taskId) {
+  lists.map((list) => {
+    if(list.id === listId) {
+      list.tasks.filter(task => task.id === taskId)
+    }
+    return list
+  })
 }
 
 function onEditTitle(id, title) {
@@ -55,7 +73,7 @@ function onEditTitle(id, title) {
             <List 
               isRemovable 
               items={lists}
-              onRemove={omRemove}
+              onRemove={omRemoveList}
               onClickItem={item => setactiveItem(item)}
               activeItem={activeItem}
             />
@@ -70,10 +88,12 @@ function onEditTitle(id, title) {
          <hr></hr>
          <ul className="main__list">
           {
-            lists && activeItem ? <ListItem tasks={activeItem.tasks}/> : null
+            lists && activeItem ? <ListItem omRemoveTask={omRemoveTask} tasks={activeItem.tasks}/> : null
           }
          </ul>
-         <NewTask/>
+          {
+            lists && <NewTask list={activeItem} onAddTask={onAddTask}/>
+          }
       </div>
     </div>
   );
