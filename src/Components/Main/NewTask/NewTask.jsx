@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import axios from "axios";
-import addImg from "../../../assets/img/add.svg";
+
 import "./NewTask.scss";
+import addImg from "../../../assets/img/add.svg";
 
 function NewTask({list, onAddTask}) {
   const [visibleForm, setvisibleForm] = useState(false);

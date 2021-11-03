@@ -1,12 +1,12 @@
 import React from "react";
+import Circle from "../Circle/Circle";
 import axios from "axios";
 import classNames from "classnames";
+
 import './List.scss';
-import Circle from "../Circle/Circle";
 import close from '../../../assets/img/remove.svg';
 
 function List({ items, click, isRemovable, onRemove, onClickItem, activeItem}) {
-  
   const removeList = (item) => {
     if(window.confirm('Вы действительно хотите удалить список')) {
       axios.delete('http://localhost:3001/lists/' + item.id).then(() => {

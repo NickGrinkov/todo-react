@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import edit from '../../../assets/img/edit.svg';
+
 import './Header.scss';
+import edit from '../../../assets/img/edit.svg';
 
 function Header({list, onEditTitle}) {
 
@@ -18,7 +19,7 @@ function Header({list, onEditTitle}) {
   }
 
   return (
-    <Link to={`lists/${list.id}`}>
+    <Link to={`/lists/${list.id}`}>
       <div className="header_wrapper">
       <h2 style={{ color: list.color.name }} className="header">{list.name}</h2>
       <img onClick={editTitle} src={edit} alt="close-icon" />

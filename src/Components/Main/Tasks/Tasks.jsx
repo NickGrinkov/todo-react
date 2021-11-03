@@ -2,7 +2,6 @@ import React from "react";
 import {Header, TaskItem, NewTask,} from "../../index";
 
 function Tasks({list, onEditTitle, onAddTask, onRemoveTask, onEditTask, onCompleteTask}) {
-  console.log(list);
   return (
     <div>
       {
@@ -10,18 +9,19 @@ function Tasks({list, onEditTitle, onAddTask, onRemoveTask, onEditTask, onComple
       }
        { list && <hr /> }   
       <ul className="main__list">
-        {list && list.tasks && (
+        {list && list.tasks.map((task) => (
           <TaskItem
+            {...task}
             onRemoveTask={onRemoveTask}
-            tasks={list.tasks}
             list={list}
+            key={task.id}
             onEditTask={onEditTask}
             onComplete={onCompleteTask}
           />
-        )}
+        ))}
       </ul>
       {list && (
-        <NewTask key={list.id} list={list} onAddTask={onAddTask} />
+        <NewTask list={list} onAddTask={onAddTask} />
       )}
     </div>
   );

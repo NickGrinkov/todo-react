@@ -1,8 +1,8 @@
 import React from "react";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { List, AddButton, Tasks } from "./Components/index";
 import { Route, useHistory, useLocation } from "react-router-dom";
+import axios from "axios";
 
 import "./App.scss";
 
@@ -161,6 +161,7 @@ function App() {
           {lists &&
             lists.map((list) => (
               <Tasks
+                tasks={list.tasks}
                 list={list}
                 onEditTitle={onEditTitle}
                 onAddTask={onAddTask}
