@@ -1,10 +1,13 @@
 import React from "react";
 import './Checkbox.scss';
 
-function Checkbox({task}) {
+function Checkbox({listId, task, onComplete}) {
+  const onChangeCheckbox = e => {
+    onComplete(listId, task.id, e.target.checked);
+  }
   return (
     <div className="checkbox">
-      <input id={`check-${task.id}`} type="checkbox" />
+      <input checked={task.completed} onChange={onChangeCheckbox} id={`check-${task.id}`} type="checkbox" />
       <label htmlFor={`check-${task.id}`}>
         <svg
           width="11"

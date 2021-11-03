@@ -7,7 +7,7 @@
     .active {
         background-color: white;
     }
-    .todo_item {
+    li {
         position: relative;
         display: flex;
         align-items: center;
@@ -31,16 +31,25 @@
         &:hover {
             background-color: rgba(255,255,255, 0.5)
         }
-        &:hover .todo_item_close {
+        &:hover .close {
             opacity: 0.3;
             &:hover {
                 opacity: 1;
             }
         }
-        &_close {
+        .close {
             position: absolute;
             right: 10px;
             opacity: 0;
         }
+    }
+
+    .tasks_button {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px;
     }
 }

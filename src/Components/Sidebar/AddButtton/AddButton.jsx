@@ -29,13 +29,14 @@ function AddButton({ colors, onAdd }) {
           colorId: selectedColor,
         })
         .then(({ data }) => {
-          const color = colors.filter((c) => c.id === selectedColor)[0].name;
-          const newObj = { ...data, color: { name: color } };
+          const color = colors.filter((c) => c.id === selectedColor)[0]
+          const newObj = { ...data, color, tasks: []};
           onAdd(newObj);
           closePopup();
           setIsLoading(false);
         })
-        .catch(() => {
+        .catch((e) => {
+          console.log(e);
           alert("Ошибка при добавлении списка");
         })
         .finally(setIsLoading(true));

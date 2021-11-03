@@ -17,9 +17,9 @@ function NewTask({list, onAddTask}) {
 
   const addNewTask = () => {
     const taskObj = {
-      "listId": list.id,
-      "text": inputValue,
-      "completed": false
+      listId: list.id,
+      text: inputValue,
+      completed: false
     }
     setIsSending(true)
     axios.post('http://localhost:3001/tasks', taskObj).then(() => {
@@ -41,7 +41,7 @@ function NewTask({list, onAddTask}) {
               onChange={e => setinputValue(e.target.value)} 
               type="text" placeholder="Текст задачи"/>
           <div className="main__wrapper">
-            <button disabled={!inputValue} className="button" onClick={addNewTask}>{isSending ? 'Добавление...' : 'Добавить'}</button>
+            <button disabled={!inputValue} className="button" onClick={() => addNewTask()}>{isSending ? 'Добавление...' : 'Добавить'}</button>
             <button className="button button--grey" onClick={toggleVisibleForm}>Отмена</button>
           </div>
       </div>) : 
