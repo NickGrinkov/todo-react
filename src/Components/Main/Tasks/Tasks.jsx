@@ -9,7 +9,7 @@ function Tasks({list, onEditTitle, onAddTask, onRemoveTask, onEditTask, onComple
       }
        { list && <hr /> }   
       <ul className="main__list">
-        {list && list.tasks.map((task) => (
+        {list && list.tasks.map(task => (
           <TaskItem
             {...task}
             onRemoveTask={onRemoveTask}
@@ -21,7 +21,7 @@ function Tasks({list, onEditTitle, onAddTask, onRemoveTask, onEditTask, onComple
         ))}
       </ul>
       {list && (
-        <NewTask list={list} onAddTask={onAddTask} />
+        <NewTask key={list.id} list={list} onAddTask={onAddTask} />
       )}
     </div>
   );

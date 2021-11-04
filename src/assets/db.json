@@ -52,6 +52,24 @@
       "text": "Продавать активно",
       "completed": false,
       "id": 34
+    },
+    {
+      "listId": 1,
+      "text": "покупка",
+      "completed": false,
+      "id": 35
+    },
+    {
+      "listId": 1,
+      "text": "куп",
+      "completed": false,
+      "id": 36
+    },
+    {
+      "listId": 1,
+      "text": "sadasd",
+      "completed": false,
+      "id": 37
     }
   ],
   "colors": [

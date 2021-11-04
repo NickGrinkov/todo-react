@@ -54,10 +54,10 @@ function App() {
         }
         return list
       })
+      setLists(newTask);
       axios.delete('http://localhost:3001/tasks/' + taskId).catch(() => {
           alert('Не удалось удалить задачу')
       })
-      setLists(newTask);
     }
   }
 
@@ -75,7 +75,9 @@ function App() {
         return list;
       })
       setLists(newTask);
-      axios.patch('http://localhost:3001/tasks/' + taskObj.id, {text: newTaskText}).catch(() => {
+      axios.patch('http://localhost:3001/tasks/' + taskObj.id, {
+        text: newTaskText
+      }).catch(() => {
           alert('Не удалось редактировать задачу')
       })
   }
@@ -161,6 +163,7 @@ function App() {
           {lists &&
             lists.map((list) => (
               <Tasks
+                key={list.id}
                 tasks={list.tasks}
                 list={list}
                 onEditTitle={onEditTitle}

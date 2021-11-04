@@ -23,8 +23,9 @@ function NewTask({list, onAddTask}) {
       completed: false
     }
     setIsSending(true)
-    axios.post('http://localhost:3001/tasks', taskObj).then(() => {
-      onAddTask(list.id, taskObj)
+    axios.post('http://localhost:3001/tasks', taskObj).then(({data}) => {
+      console.log(data);
+      onAddTask(list.id, data)
       toggleVisibleForm()
     }).catch(() => {
        alert('Ошибка при добавлении задачи')

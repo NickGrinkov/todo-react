@@ -11,7 +11,7 @@ function TaskItem({list, id, text, completed, onRemoveTask, onEditTask, onComple
         <Checkbox listId={list.id} onComplete={onComplete} taskId={id} completed={completed} />
         <p>{text}</p>
         <img className="close-svg" onClick={() => onRemoveTask(list.id, id)} src={remove} alt="close" />
-        <img className="edit-svg" onClick={() => onEditTask(list.id, {id: id, text: text})} src={edit} alt="edit" />
+        <img className="edit-svg" onClick={() => onEditTask(list.id, {id, text})} src={edit} alt="edit" />
       </li>
   );
 }
